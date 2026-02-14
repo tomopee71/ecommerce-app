@@ -16,7 +16,7 @@ const CartTotal = () => {
           <p>小計</p>
           <p>
             {currency}
-            {getCartAmount().toFixed(2)}
+            {getCartAmount().toFixed(0)}
           </p>
         </div>
         <hr />
@@ -24,7 +24,7 @@ const CartTotal = () => {
           <p>配送料</p>
           <p>
             {currency}
-            {delivery_fee.toFixed(2)}
+            {delivery_fee.toFixed(0)}
           </p>
         </div>
         <hr />
@@ -35,7 +35,7 @@ const CartTotal = () => {
             {(getCartAmount() === 0
               ? 0
               : getCartAmount() + delivery_fee
-            ).toFixed(2)}
+            ).toFixed(0)}
           </b>
         </div>
       </div>

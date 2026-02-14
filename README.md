@@ -11,6 +11,7 @@
 ## セットアップ
 
 ### 前提条件
+
 - Node.js (v14以上)
 - MongoDB
 - Cloudinary アカウント (画像管理用)
@@ -18,6 +19,7 @@
 ### インストール
 
 1. リポジトリをクローン
+
 ```bash
 git clone <your-repository-url>
 cd ECOMMERCE-APP
@@ -44,6 +46,7 @@ npm install
 各フォルダに `.env` ファイルを作成し、必要な環境変数を設定してください。
 
 #### Backend (.env)
+
 ```
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
@@ -53,11 +56,13 @@ CLOUDINARY_SECRET_KEY=your_cloudinary_secret_key
 ```
 
 #### Frontend (.env)
+
 ```
 VITE_BACKEND_URL=http://localhost:4000
 ```
 
 #### Admin (.env)
+
 ```
 VITE_BACKEND_URL=http://localhost:4000
 ```

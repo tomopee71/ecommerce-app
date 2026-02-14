@@ -8,7 +8,7 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
   const currency = '¥';
-  const delivery_fee = 10;
+  const delivery_fee = 0;
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
   const [search, setSearch] = useState('');
   const [showSearch, setShowSearch] = useState(false);
@@ -19,7 +19,7 @@ const ShopContextProvider = (props) => {
 
   const addToCart = async (itemId, size) => {
     if (!size) {
-      toast.error('Select Product Size');
+      toast.error('サイズを選択してください');
       return;
     }
 
@@ -73,11 +73,11 @@ const ShopContextProvider = (props) => {
   const getProductsData = async () => {
     try {
       const response = await axios.get(backendUrl + '/api/product/list');
-      console.log('📦 取得した製品データ:', response.data);
+      // console.log('📦 取得した製品データ:', response.data);
       if (response.data.success) {
         // 各製品の画像データを検証
         const validatedProducts = response.data.products.map((product) => {
-          console.log(`製品 ${product.name} の画像:`, product.images);
+          // console.log(`製品 ${product.name} の画像:`, product.images);
           if (!product.images || product.images.length === 0) {
             console.warn(
               `⚠️ 製品 "${product.name}" (ID: ${product._id}) に画像がありません`
@@ -86,7 +86,7 @@ const ShopContextProvider = (props) => {
           return product;
         });
         setProducts(validatedProducts);
-        console.log(`✓ ${validatedProducts.length}件の製品を読み込みました`);
+        // console.log(`✓ ${validatedProducts.length}件の製品を読み込みました`);
       } else {
         toast.error(response.data.message);
       }

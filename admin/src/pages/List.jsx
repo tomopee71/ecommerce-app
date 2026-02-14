@@ -69,8 +69,24 @@ const List = ({ token }) => {
             <img className="w-12" src={item.images?.[0]} alt="" />
             <p>{item.jan}</p>
             <p>{item.name}</p>
-            <p>{item.category}</p>
-            <p>{item.subCategory}</p>
+            <p>
+              {item.category === "Unisex"
+                ? "男女兼用"
+                : item.category === "Men"
+                  ? "男性用"
+                  : item.category === "Women"
+                    ? "女性用"
+                    : "不明"}
+            </p>
+            <p>
+              {item.subCategory === "Pants"
+                ? "パンツタイプ"
+                : item.subCategory === "Pat"
+                  ? "パット"
+                  : item.subCategory === "Tape"
+                    ? "テープタイプ"
+                    : "不明"}
+            </p>
             <p>
               {currency}
               {item.price}

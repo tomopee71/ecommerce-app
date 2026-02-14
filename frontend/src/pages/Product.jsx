@@ -26,6 +26,7 @@ function Product() {
   }, [productId, products]);
 
   console.log(productId);
+  console.log(productData);
 
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
@@ -67,7 +68,7 @@ function Product() {
             {productData.description}
           </p>
           <div className="flex flex-col gap-4 my-8">
-            <p>サイズ選択</p>
+            <p>ご希望のサイズを選択して下さい。</p>
             <div className="flex gap-2">
               {productData.sizes.map((item, index) => (
                 <button
@@ -116,6 +117,7 @@ function Product() {
       <RelatedProducts
         category={productData.category}
         subCategory={productData.subCategory}
+        currentProductId={productData._id}
       />
     </div>
   ) : (
