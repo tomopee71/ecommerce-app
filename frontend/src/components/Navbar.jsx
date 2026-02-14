@@ -13,12 +13,16 @@ function Navbar() {
     token,
     setToken,
     setCartItems,
+    userName,
+    setUserName,
   } = useContext(ShopContext);
 
   const logout = () => {
     navigate('/login');
     localStorage.removeItem('token');
+    localStorage.removeItem('userName');
     setToken('');
+    setUserName('');
     setCartItems({});
   };
 
@@ -54,6 +58,11 @@ function Navbar() {
           className="w-5 cursor-pointer"
         />
 
+        {token && (
+          <p className="text-sm text-gray-700 hidden sm:block">
+            {userName ? userName + '様' : 'ユーザー'}
+          </p>
+        )}
         <div className="group relative">
           <img
             onClick={() => (token ? null : navigate('/login'))}

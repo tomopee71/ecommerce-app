@@ -6,7 +6,8 @@ import { useEffect } from 'react';
 
 function Login() {
   const [currentState, setCurrentState] = useState('Login');
-  const { token, setToken, navigate, backendUrl } = useContext(ShopContext);
+  const { token, setToken, navigate, backendUrl, setUserName } =
+    useContext(ShopContext);
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -24,7 +25,9 @@ function Login() {
         // console.log(response.data);
         if (response.data.success) {
           setToken(response.data.token);
+          setUserName(response.data.name || name);
           localStorage.setItem('token', response.data.token);
+          localStorage.setItem('userName', response.data.name || name);
         } else {
           toast.error(response.data.message);
         }
@@ -36,7 +39,9 @@ function Login() {
         // console.log(response.data);
         if (response.data.success) {
           setToken(response.data.token);
+          setUserName(response.data.name || '');
           localStorage.setItem('token', response.data.token);
+          localStorage.setItem('userName', response.data.name || '');
         } else {
           toast.error(response.data.message);
         }

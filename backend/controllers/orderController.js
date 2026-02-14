@@ -116,8 +116,20 @@ const placeOrderRazorpay = async (req, res) => {};
 // All Orders data for Admin Panel
 const allOrders = async (req, res) => {
   try {
-    const orders = await orderModel.find({}).sort({ date: -1 });
-    res.json({ success: true, orders });
+    const orders = await orderModel.find({}).sort({ date: -1 }).lean();
+    const userIds = [...new Set(orders.map((order) => String(order.userId)))];
+    const users = await userModel
+      .find({ _id: { $in: userIds } })
+      .select("name")
+      .lean();
+    const userNameMap = new Map(
+      users.map((user) => [String(user._id), user.name]),
+    );
+    const enrichedOrders = orders.map((order) => ({
+      ...order,
+      userName: userNameMap.get(String(order.userId)) || "",
+    }));
+    res.json({ success: true, orders: enrichedOrders });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: "Error while fetching all orders" });
@@ -129,7 +141,8 @@ const userOrders = async (req, res) => {
   try {
     const { userId } = req.body;
     const orders = await orderModel.find({ userId });
-    res.json({ success: true, orders });
+    const user = await userModel.findById(userId);
+    res.json({ success: true, orders, userName: user?.name || "" });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: "Error while fetching user orders" });

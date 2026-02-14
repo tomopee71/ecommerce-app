@@ -19,7 +19,7 @@ const Orders = ({ token }) => {
         {},
         { headers: { token } },
       );
-      // console.log(response.data)
+      console.log(response.data);
       if (response.data.success) {
         setOrders(response.data.orders);
       } else {
@@ -32,19 +32,20 @@ const Orders = ({ token }) => {
   };
 
   const statusHandler = async (event, orderId) => {
-
-    try{
-     
-      const response = await axios.post(backendUrl + '/api/order/status', { orderId, status: event.target.value }, { headers: { token } });
+    try {
+      const response = await axios.post(
+        backendUrl + "/api/order/status",
+        { orderId, status: event.target.value },
+        { headers: { token } },
+      );
       if (response.data.success) {
         await fetchAllOrders();
-      } 
+      }
     } catch (error) {
       console.log(error);
       toast.error("Error while updating order status");
     }
-
-  }
+  };
 
   useEffect(() => {
     fetchAllOrders();
@@ -61,27 +62,36 @@ const Orders = ({ token }) => {
           >
             <img className="w-12" src={assets.parcel_icon} alt="" />
             <div>
+              <p className="font-medium">
+                注文者: {order.userName || "ユーザー"}
+              </p>
               <p>購入品目数: {order.items.length}</p>
               {order.items.map((item, index) => {
                 if (index === order.items.length - 1) {
                   return (
                     <p className="py-0.5" key={index}>
-                      {item.jan} {item.name} x <span className="font-medium">{item.quantity}個</span>{" "}
-                      <span className="font-medium">{"サイズ: " + item.size}</span>
+                      {item.jan} {item.name} x{" "}
+                      <span className="font-medium">{item.quantity}個</span>{" "}
+                      <span className="font-medium">
+                        {"サイズ: " + item.size}
+                      </span>
                     </p>
                   );
                 } else {
                   return (
                     <p className="py-0.5" key={index}>
-                      {item.jan} {item.name} x <span className="font-medium">{item.quantity}個</span>{" "}
-                      <span className="font-medium">{"サイズ: " + item.size}</span>
+                      {item.jan} {item.name} x{" "}
+                      <span className="font-medium">{item.quantity}個</span>{" "}
+                      <span className="font-medium">
+                        {"サイズ: " + item.size}
+                      </span>
                     </p>
                   );
                 }
               })}
             </div>
             <div>
-              <p className="mt-3 mb-2 font-medium" >注文者情報</p>
+              <p className="mt-3 mb-2 font-medium">注文者情報</p>
               <p>
                 {"氏名: " +
                   order.address.lastName +
@@ -111,7 +121,11 @@ const Orders = ({ token }) => {
               <p>日付: {new Date(order.date).toLocaleDateString()}</p>
             </div>
 
-            <select onChange= {(event) => statusHandler(event, order._id)} value={order.status} className = "p-2 font-semibold">
+            <select
+              onChange={(event) => statusHandler(event, order._id)}
+              value={order.status}
+              className="p-2 font-semibold"
+            >
               <option value="Order Placed">注文確認待ち</option>
               <option value="Packing">発送準備中</option>
               <option value="Shipped">出荷済み</option>

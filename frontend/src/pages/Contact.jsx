@@ -6,7 +6,7 @@ function Contact() {
   return (
     <div>
       <div className="text-2xl text-center pt-10 border-t">
-        <Title text1={'CONTACT'} text2={'US'} />
+        <Title text1={'お問い合わせ'} text2={'先'} />
       </div>
 
       <div className="my-10 flex flex-col md:flex-row gap-10 justify-center mb-28">
@@ -16,7 +16,6 @@ function Contact() {
           className="w-full md:max-w-[480px]"
         />
         <div className="flex flex-col justify-center gap-6  items-start">
-          <p className="font-semibold text-xl text-gray-600">お問い合わせ先</p>
           <p className="text-gray-500">山梨県甲府市後屋町４５２番地</p>
           <p className="text-gray-500">株式会社クスリのサンロード シルバーデリバリー担当</p>
           <p className="text-gray-500">

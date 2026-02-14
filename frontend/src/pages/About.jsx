@@ -6,7 +6,7 @@ const About = () => {
   return (
     <div>
       <div className="text-2xl text-center pt-8 border-t">
-        <Title text1={'ABOUT'} text2={'US'} />
+        <Title text1={'サイト'} text2={'について'} />
       </div>
 
       <div className="my-10 flex flex-col md:flex-row gap-16">
@@ -38,46 +38,35 @@ const About = () => {
         </dd>
       </dl>
           
-          <b className="text-gray-800">Our Mission</b>
+          <b className="text-gray-800">私たちの使命</b>
           <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            facere, deleniti sapiente labore error ad delectus, asperiores et
-            repellat, dolorum fugiat eligendi reprehenderit eum amet esse
-            recusandae beatae quae! Perspiciatis.
+            私たちはお客様に最高の製品とサービスを提供することを使命とし、常にお客様の期待を超えることを目指しています。
           </p>
         </div>
       </div>
       <div className="text-xl py-4">
-        <Title text1={'WHY'} text2={'CHOOSE US'} />
+        <Title text1={'なぜ'} text2={'私たちを選ぶのか'} />
       </div>
 
       <div className="flex flex-col md:flex-row text-sm mb-20">
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
           <b>品質保証:</b>
           <p className="text-gray-600">
-            We prioritize quality in all our products, ensuring that our
-            customers receive items that meet high standards of durability and
-            performance.
+            私たちはすべての製品において品質を最優先し、お客様が高い耐久性と性能を備えた商品を受け取ることを保証します。
           </p>
         </div>
 
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
-          <b>Convenience:</b>
+          <b>利便性:</b>
           <p className="text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ad
-            eius error facilis, exercitationem corrupti id pariatur vero
-            inventore esse impedit nihil earum saepe sed deleniti soluta ratione
-            doloremque harum!
+            私たちはお客様に便利で快適なショッピング体験を提供することを目指しており、迅速な配送と簡単な返品手続きを通じてお客様の利便性を最大化します。
           </p>
         </div>
 
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
-          <b>Exceptional Customer Service:</b>
+          <b>優れたカスタマーサービス:</b>
           <p className="text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique
-            aspernatur delectus asperiores maxime temporibus dolores? Et facere
-            odio laborum iste, a alias tempore inventore. Odio ut repellendus
-            magni optio dolores!
+            私たちはお客様に最高のサービスを提供することを目指しており、迅速かつ丁寧な対応でお客様の満足度を最大化します。
           </p>
         </div>
       </div>

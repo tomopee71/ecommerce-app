@@ -21,6 +21,19 @@ function Orders() {
     }).format(date);
   };
 
+  const formatAddress = (address) => {
+    if (!address) return '';
+    const name = [address.lastName, address.firstName]
+      .filter(Boolean)
+      .join(' ');
+    const line1 = [address.zipcode, address.state, address.city]
+      .filter(Boolean)
+      .join(' ');
+    const line2 = [address.street, address.country].filter(Boolean).join(' ');
+    const phone = address.phone ? `TEL: ${address.phone}` : '';
+    return [name, line1, line2, phone].filter(Boolean).join(' / ');
+  };
+
   const loadOrderData = async () => {
     try {
       if (!token) {
@@ -41,6 +54,8 @@ function Orders() {
             item['payment'] = order.payment;
             item['paymentMethod'] = order.paymentMethod;
             item['date'] = order.date;
+            item['address'] = order.address;
+            item['userName'] = response.data.userName || '';
             allOrdersItem.push(item);
           });
         });
@@ -59,7 +74,7 @@ function Orders() {
   return (
     <div className="border-t pt-16">
       <div className="text-2xl">
-        <Title text1={'MY'} text2={'ORDERS'} />
+        <Title text1={'注文'} text2={'履歴'} />
       </div>
 
       <div>
@@ -92,8 +107,18 @@ function Orders() {
                 </p>
                 <p className="mt-2">
                   支払い方法:{' '}
+                  <span className="text-gray-400">{item.paymentMethod}</span>
+                </p>
+                <p className="mt-2">
+                  お届け先:{' '}
                   <span className="text-gray-400">
-                    {item.paymentMethod }
+                    {formatAddress(item.address)}
+                  </span>
+                </p>
+                <p className="mt-2">
+                  注文者:{' '}
+                  <span className="text-gray-400">
+                    {item.userName || 'ユーザー'}
                   </span>
                 </p>
               </div>
@@ -101,17 +126,19 @@ function Orders() {
             <div className="md:w-1/2 flex justify-between">
               <div className="flex items-center gap-2">
                 <p className="min-w-2 h-2 rounded-full bg-green-500"></p>
-                <p className="text-sm md:text-base">{item.status === 'Order Placed'
-                      ? '注文確認待ち'
-                      : item.status === 'Packing'
-                        ? '発送準備中'
-                        : item.status === 'Shipped'
-                          ? '出荷済み'
-                          : item.status === 'Out for delivery'
-                            ? '配送中'
-                            : item.status === 'Delivered'
-                              ? '配達完了'
-                              : '不明'}</p>
+                <p className="text-sm md:text-base">
+                  {item.status === 'Order Placed'
+                    ? '注文確認待ち'
+                    : item.status === 'Packing'
+                      ? '発送準備中'
+                      : item.status === 'Shipped'
+                        ? '出荷済み'
+                        : item.status === 'Out for delivery'
+                          ? '配送中'
+                          : item.status === 'Delivered'
+                            ? '配達完了'
+                            : '不明'}
+                </p>
               </div>
               <button
                 type="button"
