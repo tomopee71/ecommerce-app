@@ -37,7 +37,7 @@ function Navbar() {
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/about" className="flex flex-col items-center gap-1">
-          <p>会社概要</p>
+          <p>サイトについて</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
         <NavLink to="/contact" className="flex flex-col items-center gap-1">
@@ -136,7 +136,7 @@ function Navbar() {
             className="py-2 pl-6 border-b border-gray-200"
             to="/about"
           >
-            会社概要
+            サイトについて
           </NavLink>
           <NavLink
             onClick={() => setVisible(false)}

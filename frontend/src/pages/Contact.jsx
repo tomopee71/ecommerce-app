@@ -16,27 +16,34 @@ function Contact() {
           className="w-full md:max-w-[480px]"
         />
         <div className="flex flex-col justify-center gap-6  items-start">
-          <p className="font-semibold text-xl text-gray-600">Our Store</p>
+          <p className="font-semibold text-xl text-gray-600">お問い合わせ先</p>
+          <p className="text-gray-500">山梨県甲府市後屋町４５２番地</p>
+          <p className="text-gray-500">株式会社クスリのサンロード シルバーデリバリー担当</p>
           <p className="text-gray-500">
-            山梨県甲府市
-            <br />
-            人形町1丁目３ー２５
-          </p>
-          <p className="text-gray-500">
-            Tel: 055-234-1234
+            Tel: 055-234-1550
             <br />
             Email: contact@ourstore.com
           </p>
-          <p className="font-semibold text-xl text-gray-600">
-            Careers at Forever
-          </p>
           <p className="text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic dicta
-            delectus
+            ホームページ:{' '}
+            <a
+              href="https://inavi.heteml.net/sunroad/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              https://inavi.heteml.net/sunroad/
+            </a>
           </p>
-          <button className="border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500">
-            Explore Jobs
-          </button>
+
+          <a
+            href="https://kusurinosunroad.net/jobfind-pc/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-black px-8 py-4 text-sm hover:bg-black hover:text-white transition-all duration-500"
+          >
+            求人情報はこちら
+          </a>
         </div>
       </div>
       <NewsletterBox />

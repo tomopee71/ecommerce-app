@@ -16,18 +16,28 @@ const About = () => {
           alt=""
         />
         <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt,
-            dicta, aspernatur dolores cumque excepturi commodi minus neque amet
-            reprehenderit laborum ex suscipit ipsum? Ullam inventore ducimus
-            magnam! Qui, dolorum earum.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt,
-            dicta, aspernatur dolores cumque excepturi commodi minus neque amet
-            reprehenderit laborum ex suscipit ipsum? Ullam inventore ducimus
-            magnam! Qui, dolorum earum.
-          </p>
+      <p>店舗情報</p>
+      <dl>
+        <dt>販売業者</dt>
+        <dd>株式会社クスリのサンロード</dd>
+        <dt>販売店名</dt>
+        <dd>クスリのサンロード デリバリーショップ</dd>
+        <dt>担当</dt>
+        <dd>シルバー担当</dd>
+        <dt>電話番号</dt>
+        <dd>055-234-1550</dd>
+        <dt>メール</dt>
+        <dd>contact@ourstore.com</dd>
+        <dt>店舗担当責任者</dt>
+        <dd>
+         各店長
+        </dd>
+        <dt>セキュリティー責任者</dt>
+        <dd>
+         クスリのサンロード 情報センター 東 和宏
+        </dd>
+      </dl>
+          
           <b className="text-gray-800">Our Mission</b>
           <p>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
@@ -43,7 +53,7 @@ const About = () => {
 
       <div className="flex flex-col md:flex-row text-sm mb-20">
         <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
-          <b>Quality Assurance:</b>
+          <b>品質保証:</b>
           <p className="text-gray-600">
             We prioritize quality in all our products, ensuring that our
             customers receive items that meet high standards of durability and
