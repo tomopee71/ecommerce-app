@@ -11,33 +11,29 @@ const About = () => {
 
       <div className="my-10 flex flex-col md:flex-row gap-16">
         <img
-          className="w-full md:max-w-[450px]"
+          className="w-full sm:max-w-[100px] md:max-w-[360px]"
           src={assets.about_img}
           alt=""
         />
         <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600">
-      <p>店舗情報</p>
-      <dl>
-        <dt>販売業者</dt>
-        <dd>株式会社クスリのサンロード</dd>
-        <dt>販売店名</dt>
-        <dd>クスリのサンロード デリバリーショップ</dd>
-        <dt>担当</dt>
-        <dd>シルバー担当</dd>
-        <dt>電話番号</dt>
-        <dd>055-234-1550</dd>
-        <dt>メール</dt>
-        <dd>contact@ourstore.com</dd>
-        <dt>店舗担当責任者</dt>
-        <dd>
-         各店長
-        </dd>
-        <dt>セキュリティー責任者</dt>
-        <dd>
-         クスリのサンロード 情報センター 東 和宏
-        </dd>
-      </dl>
-          
+          <p className="text-gray-800 font-semibold">店舗情報</p>
+          <dl className="grid grid-cols-[160px_1fr] gap-x-4 gap-y-2 text-sm leading-relaxed">
+            <dt className="font-medium text-gray-800">販売業者</dt>
+            <dd>株式会社クスリのサンロード</dd>
+            <dt className="font-medium text-gray-800">販売店名</dt>
+            <dd>クスリのサンロード デリバリーショップ</dd>
+            <dt className="font-medium text-gray-800">担当</dt>
+            <dd>シルバー担当</dd>
+            <dt className="font-medium text-gray-800">電話番号</dt>
+            <dd>055-234-1550</dd>
+            <dt className="font-medium text-gray-800">メール</dt>
+            <dd>contact@ourstore.com</dd>
+            <dt className="font-medium text-gray-800">店舗担当責任者</dt>
+            <dd>各店長</dd>
+            <dt className="font-medium text-gray-800">セキュリティー責任者</dt>
+            <dd>クスリのサンロード 情報センター 東 和宏</dd>
+          </dl>
+
           <b className="text-gray-800">私たちの使命</b>
           <p>
             私たちはお客様に最高の製品とサービスを提供することを使命とし、常にお客様の期待を超えることを目指しています。
